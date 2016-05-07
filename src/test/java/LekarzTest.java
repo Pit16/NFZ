@@ -32,4 +32,12 @@ public class LekarzTest {
         assertThat(lekarz.toString(),
                 equalTo(Czlowiek.DOMYSLNE_IMIE + " " + Czlowiek.DOMYSLNE_NAZWISKO + ", lekarz"));
     }
+
+    @Test
+    public void powinienZdiagnozowacChorobeNaPodstawieObjawow() throws Exception {
+        Choroba choroba = lekarz.diagnozuj("Cieknie mi z nosa");
+        assertThat(choroba,equalTo(Choroba.ANGINA));
+
+        assertThat(lekarz.diagnozuj("Duze zrenice"),equalTo(Choroba.ZMECZENIE));
+    }
 }
