@@ -12,10 +12,18 @@ public class PacjentTest {
     Pacjent pacjent = new Pacjent();
 
     @Test
-    public void powinienOkazywacObjawyChoroby() throws Exception {
+    public void powinienNieMiecNaPoczatkuObjawowChoroby() throws Exception {
         String objawy = pacjent.przedstawObjawy();
 
-        assertThat(objawy, equalTo("Cieknie mi z nosa"));
+        assertThat(objawy, equalTo("Brak objawow"));
+    }
+
+    @Test
+    public void powinienUstawicObjawyChoroby() throws Exception {
+        final String OBJAWY = "Cieknie mi z nosa";
+        pacjent.ustawObjawy(OBJAWY);
+
+        assertThat(pacjent.przedstawObjawy(), equalTo("Cieknie mi z nosa"));
     }
 
     @Test

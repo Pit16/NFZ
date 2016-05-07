@@ -5,15 +5,18 @@
 public class Pacjent extends Czlowiek{
 
     private Choroba choroba;
+    private String objawy;
 
     public Pacjent() {
         super();
         choroba = Choroba.ZDROWY;
+        objawy = "Brak objawow";
     }
 
     public Pacjent(String imie, String nazwisko, long PESEL) {
         super(imie,nazwisko,PESEL);
         choroba = Choroba.ZDROWY;
+        objawy = "Brak objawow";
     }
 
     @Override
@@ -22,7 +25,7 @@ public class Pacjent extends Czlowiek{
     }
 
     public String przedstawObjawy() {
-        return "Cieknie mi z nosa";
+        return objawy;
     }
 
     public void ustawChorobe(Choroba choroba) {
@@ -31,5 +34,9 @@ public class Pacjent extends Czlowiek{
 
     public Choroba pokazChorobe() {
         return choroba;
+    }
+
+    public void ustawObjawy(String objawy) {
+        this.objawy = objawy;
     }
 }
