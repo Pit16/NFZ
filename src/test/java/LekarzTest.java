@@ -26,4 +26,9 @@ public class LekarzTest {
 
         assertThat(skierowanie, equalTo("Skierowanie do specjalisty"));
     }
+
+    @Test
+    public void powienienWyswietlicWizytowkeLekarza() throws Exception {
+        assertThat(lekarz.toString(),equalTo("Zenek Maniek, lekarz"));
+    }
 }

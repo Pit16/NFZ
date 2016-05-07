@@ -30,4 +30,6 @@ public abstract class Czlowiek {
     public long pobierzPESEL() {
         return PESEL;
     }
+
+    public abstract String toString();
 }

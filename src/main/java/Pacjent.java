@@ -8,6 +8,11 @@ public class Pacjent extends Czlowiek{
         super(imie,nazwisko,PESEL);
     }
 
+    @Override
+    public String toString() {
+        return pobierzImie() +" " +pobierzNazwisko() +", chory";
+    }
+
     public Pacjent() {
         super();
     }
