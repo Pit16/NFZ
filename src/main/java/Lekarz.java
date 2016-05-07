@@ -4,4 +4,8 @@ public class Lekarz{
 
         return "Dziekuje za wizyte";
     }
+
+    public String wypiszRecepte() {
+        return "Recepta na katar";
+    }
 }
