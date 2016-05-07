@@ -1,5 +1,5 @@
 
-public class Lekarz extends Czlowiek{
+public class Lekarz extends Czlowiek {
 
     public Lekarz(String imie, String nazwisko, long PESEL) {
         super(imie,nazwisko,PESEL);

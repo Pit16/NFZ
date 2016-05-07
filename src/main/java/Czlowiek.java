@@ -1,7 +1,7 @@
 /**
  * Created by pit on 07.05.16.
  */
-public class Czlowiek {
+public abstract class Czlowiek {
 
     private String imie;
     private String nazwisko;

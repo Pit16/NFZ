@@ -12,10 +12,15 @@ public class CzlowiekTest {
     private final String DOMYSLNE_IMIE = "Zenek";
     private final String DOMYSLNE_NAZWISKO = "Maniek";
     private final long DOMYSLNY_PESEL = 98765432101L;
+    private final String IMIE = "Wojtek";
+    private final String NAZWISKO = "Nowak";
+    private final long PESEL = 99999900000L;
 
     @Test
-    public void powinienStworzycDomyslnegoCzlowieka() throws Exception {
-        Czlowiek chorowitek = new Czlowiek();
+    public void powinienStworzycPacjentaZDomyslnymiDanymi() throws Exception {
+        //Czlowiek jest klasa abstrakcyjna,
+        // wiec trzeba stworzyc pacjenta lub lekarza
+        Czlowiek chorowitek = new Pacjent();
 
         assertThat(chorowitek.pobierzImie(), equalTo(DOMYSLNE_IMIE));
         assertThat(chorowitek.pobierzNazwisko(), equalTo(DOMYSLNE_NAZWISKO));
@@ -23,11 +28,28 @@ public class CzlowiekTest {
     }
 
     @Test
-    public void powinienStworzycCzlowiekaZKonkretnymiDanymi() throws Exception {
-        final String IMIE = "Wojtek";
-        final String NAZWISKO = "Nowak";
-        final long PESEL = 99999900000L;
-        Czlowiek zlamas = new Czlowiek(IMIE,NAZWISKO,PESEL);
+    public void powinienStworzycPacjentaZKonkretnymiDanymi() throws Exception {
+        Czlowiek zlamas = new Pacjent(IMIE,NAZWISKO,PESEL);
+
+        assertThat(zlamas.pobierzImie(), equalTo(IMIE));
+        assertThat(zlamas.pobierzNazwisko(), equalTo(NAZWISKO));
+        assertThat(zlamas.pobierzPESEL(), equalTo(PESEL));
+    }
+
+    @Test
+    public void powinienStworzycLekarzaZDomyslnymiDanymi() throws Exception {
+        //Czlowiek jest klasa abstrakcyjna,
+        // wiec trzeba stworzyc pacjenta lub lekarza
+        Czlowiek chorowitek = new Lekarz();
+
+        assertThat(chorowitek.pobierzImie(), equalTo(DOMYSLNE_IMIE));
+        assertThat(chorowitek.pobierzNazwisko(), equalTo(DOMYSLNE_NAZWISKO));
+        assertThat(chorowitek.pobierzPESEL(), equalTo(DOMYSLNY_PESEL));
+    }
+
+    @Test
+    public void powinienStworzycLekarzaZKonkretnymiDanymi() throws Exception {
+        Czlowiek zlamas = new Lekarz(IMIE,NAZWISKO,PESEL);
 
         assertThat(zlamas.pobierzImie(), equalTo(IMIE));
         assertThat(zlamas.pobierzNazwisko(), equalTo(NAZWISKO));
