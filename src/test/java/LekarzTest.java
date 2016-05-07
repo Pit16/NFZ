@@ -4,24 +4,26 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LekarzTest {
 
+    Lekarz lekarz = new Lekarz();
+
     @Test
     public void powienienLeczyc() throws Exception{
-        Lekarz lekarz = new Lekarz();
         String poWizycie = lekarz.lecz();
+
         assertThat(poWizycie, equalTo("Dziekuje za wizyte"));
     }
 
     @Test
     public void powinienWypisacRecepte() throws Exception {
-        Lekarz lekarz = new Lekarz();
         String recepta = lekarz.wypiszRecepte();
+
         assertThat(recepta, equalTo("Recepta na katar"));
     }
 
     @Test
     public void powinienSkierowacDoSpecjalisty() throws Exception {
-        Lekarz lekarz = new Lekarz();
         String skierowanie = lekarz.dajSkierowanie();
+
         assertThat(skierowanie, equalTo("Skierowanie do specjalisty"));
     }
 }

@@ -8,16 +8,16 @@ public class Pacjent {
     private long PESEL;
 
 
-    public Pacjent(String imie, String nazwisko, long PESEL) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.PESEL = PESEL;
-    }
-
     public Pacjent() {
         imie = "Zenek";
         nazwisko = "Maniek";
         PESEL = 98765432101L;
+    }
+
+    public Pacjent(String imie, String nazwisko, long PESEL) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.PESEL = PESEL;
     }
 
     public String pobierzImie() {
