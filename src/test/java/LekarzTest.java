@@ -17,4 +17,11 @@ public class LekarzTest {
         String recepta = lekarz.wypiszRecepte();
         assertThat(recepta, equalTo("Recepta na katar"));
     }
+
+    @Test
+    public void powinienSkierowacDoSpecjalisty() throws Exception {
+        Lekarz lekarz = new Lekarz();
+        String skierowanie = lekarz.dajSkierowanie();
+        assertThat(skierowanie, equalTo("Skierowanie do specjalisty"));
+    }
 }

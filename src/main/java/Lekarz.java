@@ -8,4 +8,8 @@ public class Lekarz{
     public String wypiszRecepte() {
         return "Recepta na katar";
     }
+
+    public String dajSkierowanie() {
+        return "Skierowanie do specjalisty";
+    }
 }
