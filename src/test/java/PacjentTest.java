@@ -24,4 +24,16 @@ public class PacjentTest {
                 equalTo(Czlowiek.DOMYSLNE_IMIE + " " + Czlowiek.DOMYSLNE_NAZWISKO + ", chory"));
     }
 
+    @Test
+    public void powinienNaPoczatkuBycZdrowy() throws Exception {
+        assertThat(pacjent.pokazChorobe(), equalTo(Choroba.ZDROWY));
+    }
+
+    @Test
+    public void powinienNadacPacjentowiChorobe() throws Exception {
+        pacjent.ustawChorobe(Choroba.ANGINA);
+
+        assertThat(pacjent.pokazChorobe(), equalTo(Choroba.ANGINA));
+    }
+
 }
