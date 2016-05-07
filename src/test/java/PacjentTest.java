@@ -8,9 +8,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PacjentTest {
 
-    private final String DOMYSLNE_IMIE = "Zenek";
-    private final String DOMYSLNE_NAZWISKO = "Maniek";
-    private final long DOMYSLNY_PESEL = 98765432101L;
 
     Pacjent pacjent = new Pacjent();
 
@@ -23,7 +20,8 @@ public class PacjentTest {
 
     @Test
     public void powienienWyswietlicWizytowkePajcenta() throws Exception {
-        assertThat(pacjent.toString(),equalTo("Zenek Maniek, chory"));
+        assertThat(pacjent.toString(),
+                equalTo(Czlowiek.DOMYSLNE_IMIE + " " + Czlowiek.DOMYSLNE_NAZWISKO + ", chory"));
     }
 
 }

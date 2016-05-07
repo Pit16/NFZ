@@ -7,10 +7,14 @@ public abstract class Czlowiek {
     private String nazwisko;
     private long PESEL;
 
+    public static final String DOMYSLNE_IMIE = "Zenek";
+    public static final String DOMYSLNE_NAZWISKO = "Maniek";
+    public static final long DOMYSLNY_PESEL = 98765432101L;
+
     public Czlowiek(){
-        imie = "Zenek";
-        nazwisko = "Maniek";
-        PESEL = 98765432101L;
+        imie = DOMYSLNE_IMIE;
+        nazwisko = DOMYSLNE_NAZWISKO;
+        PESEL = DOMYSLNY_PESEL;
     }
 
     public Czlowiek(String imie, String nazwisko, long PESEL) {

@@ -29,6 +29,7 @@ public class LekarzTest {
 
     @Test
     public void powienienWyswietlicWizytowkeLekarza() throws Exception {
-        assertThat(lekarz.toString(),equalTo("Zenek Maniek, lekarz"));
+        assertThat(lekarz.toString(),
+                equalTo(Czlowiek.DOMYSLNE_IMIE + " " + Czlowiek.DOMYSLNE_NAZWISKO + ", lekarz"));
     }
 }

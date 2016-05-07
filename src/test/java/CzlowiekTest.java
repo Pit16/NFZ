@@ -9,9 +9,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CzlowiekTest {
 
-    private final String DOMYSLNE_IMIE = "Zenek";
-    private final String DOMYSLNE_NAZWISKO = "Maniek";
-    private final long DOMYSLNY_PESEL = 98765432101L;
+    private final String DOMYSLNE_IMIE = Czlowiek.DOMYSLNE_IMIE;
+    private final String DOMYSLNE_NAZWISKO = Czlowiek.DOMYSLNE_NAZWISKO;
+    private final long DOMYSLNY_PESEL = Czlowiek.DOMYSLNY_PESEL;
     private final String IMIE = "Wojtek";
     private final String NAZWISKO = "Nowak";
     private final long PESEL = 99999900000L;
