@@ -3,6 +3,8 @@
  */
 
 import org.junit.Test;
+import org.omg.CORBA.StringHolder;
+
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -23,6 +25,13 @@ public class PacjentTest {
 
     @Test
     public void powinienStworzycPacjentaZKonkretnymiDanymi() throws Exception {
-        
+        final String IMIE = "Wojtek";
+        final String NAZWISKO = "Nowak";
+        final long PESEL = 99999900000L;
+        Pacjent zlamas = new Pacjent(IMIE,NAZWISKO,PESEL);
+
+        assertThat(zlamas.pobierzImie(), equalTo(IMIE));
+        assertThat(zlamas.pobierzNazwisko(), equalTo(NAZWISKO));
+        assertThat(zlamas.pobierzPESEL(), equalTo(PESEL));
     }
 }
