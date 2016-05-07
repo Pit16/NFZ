@@ -34,4 +34,13 @@ public class PacjentTest {
         assertThat(zlamas.pobierzNazwisko(), equalTo(NAZWISKO));
         assertThat(zlamas.pobierzPESEL(), equalTo(PESEL));
     }
+
+    @Test
+    public void powinienOkazywacObjawyChoroby() throws Exception {
+        Pacjent pacjent = new Pacjent();
+
+        String objawy = pacjent.przedstawObjawy();
+
+        assertThat(objawy, equalTo("Cieknie mi z nosa"));
+    }
 }

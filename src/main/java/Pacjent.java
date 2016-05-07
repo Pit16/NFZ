@@ -31,4 +31,8 @@ public class Pacjent {
     public long pobierzPESEL() {
         return PESEL;
     }
+
+    public String przedstawObjawy() {
+        return "Cieknie mi z nosa";
+    }
 }
