@@ -8,7 +8,7 @@ public class LekarzTest {
 
     @Test
     public void powienienLeczyc() throws Exception{
-        String poWizycie = lekarz.lecz();
+        String poWizycie = lekarz.lecz(Choroba.ANGINA);
 
         assertThat(poWizycie, equalTo("Dziekuje za wizyte"));
     }

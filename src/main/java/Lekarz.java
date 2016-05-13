@@ -14,7 +14,7 @@ public class Lekarz extends Czlowiek {
         return pobierzImie() +" " +pobierzNazwisko() +", lekarz";
     }
 
-    public String lecz(){
+    public String lecz(Choroba choroba){
         return "Dziekuje za wizyte";
     }
 
