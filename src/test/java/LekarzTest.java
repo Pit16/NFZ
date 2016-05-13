@@ -22,7 +22,7 @@ public class LekarzTest {
 
     @Test
     public void powinienSkierowacDoSpecjalisty() throws Exception {
-        String skierowanie = lekarz.dajSkierowanie();
+        String skierowanie = lekarz.dajSkierowanie(Choroba.ANGINA);
 
         assertThat(skierowanie, equalTo("Skierowanie do specjalisty"));
     }

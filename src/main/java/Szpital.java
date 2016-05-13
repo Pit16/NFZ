@@ -23,8 +23,9 @@ public class Szpital {
         return "Lekarze: " +lekarzeWSzpitalu;
     }
 
-    public void rejestrujPacjenta(Pacjent pacjent) {
+    public Lekarz rejestrujPacjenta(Pacjent pacjent) {
        listaPacjentow.add(pacjent);
+        return listaLekarzy.getFirst();
     }
 
     public String wypiszPacjentow() {

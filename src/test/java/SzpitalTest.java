@@ -34,8 +34,19 @@ public class SzpitalTest {
 
         Pacjent pacjent = new Pacjent();
 
+        Lekarz nowyLekarz = new Lekarz("Pierwszy", "Lekarz", 98765432100L);
+        szpital.rejestrujLekarza(nowyLekarz);
+        
         szpital.rejestrujPacjenta(pacjent);
 
         assertThat(szpital.wypiszPacjentow(), equalTo("Lista pacjentow: \n" +pacjent.toString()));
+    }
+    @Test
+    public void powinienZwrocicLekarzaPrzyRejestracjiPacjenta(){
+
+        Pacjent pacjent = new Pacjent();
+        Lekarz nowyLekarz = new Lekarz("Pierwszy", "Lekarz", 98765432100L);
+        szpital.rejestrujLekarza(nowyLekarz);
+        assertThat(szpital.rejestrujPacjenta(pacjent), equalTo(nowyLekarz));
     }
 }

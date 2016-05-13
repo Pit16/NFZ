@@ -22,7 +22,7 @@ public class Lekarz extends Czlowiek {
         return "Recepta na katar";
     }
 
-    public String dajSkierowanie() {
+    public String dajSkierowanie(Choroba choroba) {
         return "Skierowanie do specjalisty";
     }
 
