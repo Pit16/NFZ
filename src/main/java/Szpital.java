@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Szpital {
 
     private LinkedList<Lekarz> listaLekarzy = new LinkedList<>();
+    private LinkedList<Pacjent> listaPacjentow = new LinkedList<>();
 
     public void rejestrujLekarza(Lekarz nowyLekarz) {
         listaLekarzy.add(nowyLekarz);
@@ -22,4 +23,15 @@ public class Szpital {
         return "Lekarze: " +lekarzeWSzpitalu;
     }
 
+    public void rejestrujPacjenta(Pacjent pacjent) {
+       listaPacjentow.add(pacjent);
+    }
+
+    public String wypiszPacjentow() {
+        String pacjenciWSzpitalu = "";
+        for(Pacjent pacjent: listaPacjentow){
+            pacjenciWSzpitalu +="\n" +pacjent;
+        }
+        return "Lista pacjentow: " +pacjenciWSzpitalu;
+    }
 }

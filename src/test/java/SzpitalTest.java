@@ -7,24 +7,35 @@ import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SzpitalTest {
+
+    Szpital szpital = new Szpital();
     @Test
     public void powienienRejestrowacLekarza(){
         Lekarz nowyLekarz = new Lekarz();
-        Szpital sobieskiego = new Szpital();
 
-        sobieskiego.rejestrujLekarza(nowyLekarz);
+        szpital.rejestrujLekarza(nowyLekarz);
 
-        assertThat(sobieskiego.wypiszLekarzy(), equalTo("Lekarze: \n" +nowyLekarz.toString()));
+        assertThat(szpital.wypiszLekarzy(), equalTo("Lekarze: \n" +nowyLekarz.toString()));
     }
+
     @Test
     public void powienienRejestrowacDwochLekarzy(){
         Lekarz nowyLekarz = new Lekarz("Pierwszy", "Lekarz", 98765432100L);
         Lekarz drugiLekarz = new Lekarz("Drugi", "Lekarz", 98765432101L);
-        Szpital ckr = new Szpital();
 
-        ckr.rejestrujLekarza(nowyLekarz);
-        ckr.rejestrujLekarza(drugiLekarz);
+        szpital.rejestrujLekarza(nowyLekarz);
+        szpital.rejestrujLekarza(drugiLekarz);
 
-        assertThat(ckr.wypiszLekarzy(), equalTo("Lekarze: \n" +nowyLekarz.toString() +"\n" +drugiLekarz.toString()));
+        assertThat(szpital.wypiszLekarzy(), equalTo("Lekarze: \n" +nowyLekarz.toString() +"\n" +drugiLekarz.toString()));
+    }
+
+    @Test
+    public void powienienRejestrowacPacjenta(){
+
+        Pacjent pacjent = new Pacjent();
+
+        szpital.rejestrujPacjenta(pacjent);
+
+        assertThat(szpital.wypiszPacjentow(), equalTo("Lista pacjentow: \n" +pacjent.toString()));
     }
 }
