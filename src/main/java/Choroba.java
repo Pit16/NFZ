@@ -2,5 +2,5 @@
  * Created by pit on 07.05.16.
  */
 public enum Choroba {
-    ANGINA, ZDROWY, ZMECZENIE, ZAWAL
+    ANGINA, ZDROWY, ZMECZENIE, ZAWAL, NIEZNANA
 }

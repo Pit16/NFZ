@@ -34,10 +34,7 @@ public class LekarzTest {
     }
 
     @Test
-    public void powinienZdiagnozowacChorobeNaPodstawieObjawow() throws Exception {
-        Choroba choroba = lekarz.diagnozuj("Cieknie mi z nosa");
-        assertThat(choroba,equalTo(Choroba.ANGINA));
-
-        assertThat(lekarz.diagnozuj("Duze zrenice"),equalTo(Choroba.ZMECZENIE));
+    public void powienienOdsylacPacjentaDoLekarzaPKNaPosdstawieDowolnychObjawow() throws Exception {
+        assertThat(lekarz.diagnozuj("Jakiekolwiek objawy"),equalTo(Choroba.NIEZNANA));
     }
 }

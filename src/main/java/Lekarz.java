@@ -27,15 +27,6 @@ public class Lekarz extends Czlowiek {
     }
 
     public Choroba diagnozuj(String objawy) {
-        switch (objawy){
-            case "Duze zrenice":
-                return Choroba.ZMECZENIE;
-            case "Cieknie mi z nosa":
-                return Choroba.ANGINA;
-
-            default:
-                return Choroba.ZDROWY;
-        }
-
+        return Choroba.NIEZNANA;
     }
 }
