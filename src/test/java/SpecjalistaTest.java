@@ -10,8 +10,8 @@ public class SpecjalistaTest {
     @Test
     public void chirurgPowienienZalozycGips() throws Exception{
         Chirurg chirurg = new Chirurg();
-        String poWizycie = chirurg.lecz(Choroba.ZAWAL);
-        //TODO: jest zawal a zaklada gips, nie korzysta ze specyfikacji choroby
+        String poWizycie = chirurg.lecz(Choroba.ZMECZENIE);
+        //TODO: jest zmeczenie a zaklada gips, nie korzysta ze specyfikacji choroby
         // moze zwrocic, nie moja profesja, idz do innego lekarza
 
         assertThat(poWizycie, equalTo("Zalozylem gips."));
@@ -38,6 +38,14 @@ public class SpecjalistaTest {
         assertThat(choroba,equalTo(Choroba.ANGINA));
 
         assertThat(pierwszegoKontaktu.diagnozuj("Duze zrenice"),equalTo(Choroba.ZMECZENIE));
+    }
+
+    @Test
+    public void powinienOdLekarzaPierwszegoKontaktuKierowacDoSpecjalisty() throws Exception{
+        PierwszegoKontaktu pierwszegoKontaktu = new PierwszegoKontaktu();
+        assertThat(pierwszegoKontaktu.dajSkierowanie(Choroba.ZMECZENIE),equalTo("Skierowanie do internisty"));
+        assertThat(pierwszegoKontaktu.dajSkierowanie(Choroba.ANGINA),equalTo("Skierowanie do internisty"));
+        assertThat(pierwszegoKontaktu.dajSkierowanie(Choroba.WYROSTEK_ROBACZKOWY),equalTo("Skierowanie do chirurga"));
     }
 
 }
