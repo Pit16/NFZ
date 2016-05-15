@@ -42,11 +42,35 @@ public class SzpitalTest {
         assertThat(szpital.wypiszPacjentow(), equalTo("Lista pacjentow: \n" +pacjent.toString()));
     }
     @Test
-    public void powinienZwrocicLekarzaPrzyRejestracjiPacjenta(){
-
+    public void powinienZwrocicLekarzaPierwszegoKontaktuPrzyRejestracjiPacjenta(){
         Pacjent pacjent = new Pacjent();
-        Lekarz nowyLekarz = new Lekarz("Pierwszy", "Lekarz", 98765432100L);
+        Lekarz nowyLekarz = new Internista("Pierwszy", "Lekarz", 18765432100L);
+        Lekarz drugiLekarz = new Internista("Drugi", "Lekarz", 28765432100L);
+        Lekarz trzeciLekarz = new PierwszegoKontaktu("Trzeci", "Lekarz", 38765432100L);
+        Lekarz czwartyLekarz = new Chirurg("Czwarty","Lekarz", 48765432100L);
         szpital.rejestrujLekarza(nowyLekarz);
-        assertThat(szpital.rejestrujPacjenta(pacjent), equalTo(nowyLekarz));
+        szpital.rejestrujLekarza(drugiLekarz);
+        szpital.rejestrujLekarza(trzeciLekarz);
+        szpital.rejestrujLekarza(czwartyLekarz);
+
+        Lekarz znalezionyLekarz = szpital.rejestrujPacjenta(pacjent);
+
+        assertThat(znalezionyLekarz, equalTo(trzeciLekarz));
+    }
+    @Test
+    public void powinienZwrocicNullGdyNieZnajdzieLekarzaPierwszegoKontaktu(){
+        Pacjent pacjent = new Pacjent();
+        Lekarz nowyLekarz = new Internista("Pierwszy", "Lekarz", 18765432100L);
+        Lekarz drugiLekarz = new Internista("Drugi", "Lekarz", 28765432100L);
+        Lekarz trzeciLekarz = new Chirurg("Trzeci", "Lekarz", 38765432100L);
+        Lekarz czwartyLekarz = new Chirurg("Czwarty","Lekarz", 48765432100L);
+        szpital.rejestrujLekarza(nowyLekarz);
+        szpital.rejestrujLekarza(drugiLekarz);
+        szpital.rejestrujLekarza(trzeciLekarz);
+        szpital.rejestrujLekarza(czwartyLekarz);
+
+        Lekarz znalezionyLekarz = szpital.rejestrujPacjenta(pacjent);
+
+        assertThat(znalezionyLekarz, equalTo(null));
     }
 }

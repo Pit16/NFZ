@@ -3,6 +3,14 @@
  */
 public class PierwszegoKontaktu extends Lekarz{
 
+    public PierwszegoKontaktu(String imie, String nazwisko, long PESEL) {
+        super(imie,nazwisko,PESEL);
+    }
+
+    public PierwszegoKontaktu() {
+        super();
+    }
+
     @Override
     public Choroba diagnozuj(String objawy) {
         switch (objawy) {

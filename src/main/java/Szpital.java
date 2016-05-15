@@ -25,7 +25,12 @@ public class Szpital {
 
     public Lekarz rejestrujPacjenta(Pacjent pacjent) {
        listaPacjentow.add(pacjent);
-        return listaLekarzy.getFirst();
+        for (Lekarz lekarz: listaLekarzy) {
+            if (lekarz instanceof PierwszegoKontaktu){
+                return lekarz;
+            }
+        }
+        return null;
     }
 
     public String wypiszPacjentow() {
