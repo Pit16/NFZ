@@ -73,4 +73,15 @@ public class SzpitalTest {
 
         assertThat(znalezionyLekarz, equalTo(null));
     }
+    @Test
+    public void powinienZwrocicSpecjalisteNaPodstawieSkierowania(){
+        Lekarz internista = new Internista("Pierwszy", "Lekarz", 18765432100L);
+        szpital.rejestrujLekarza(internista);
+        Lekarz chirurg = new Chirurg("Chirurg", "Lekarz", 38765432100L);
+        szpital.rejestrujLekarza(chirurg);
+
+        Lekarz znalezionyLekarz = szpital.skierujDoSpecjalisty("Skierowanie do chirurga");
+
+        assertThat(znalezionyLekarz, equalTo(chirurg));
+    }
 }

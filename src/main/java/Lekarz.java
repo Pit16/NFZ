@@ -13,6 +13,7 @@ public class Lekarz extends Czlowiek {
     public String toString() {
         return pobierzImie() +" " +pobierzNazwisko() +", lekarz";
     }
+    //TODO: A moze zrobic dla chirurga wyswietla chirurg a nie lekarz
 
     public String lecz(Choroba choroba){
         return "Dziekuje za wizyte";
