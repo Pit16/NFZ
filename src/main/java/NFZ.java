@@ -4,24 +4,11 @@
 public class NFZ {
     public static void main(String[] args) throws Exception{
 
-
-        Szpital woloska = new Szpital();
-        Lekarz chirurg = new Chirurg("Maciek", "Chirurg", 11223345678L);
-        Lekarz chirurgDrugi = new Chirurg("Zenek", "Chirurg", 21223345678L);
-        Lekarz internista = new Internista("Franek", "Internista", 11123345678L);
-
-        woloska.rejestrujLekarza(chirurg);
-        woloska.rejestrujLekarza(chirurgDrugi);
-        woloska.rejestrujLekarza(internista);
-
-        Pacjent pacjent = new Pacjent();
-        pacjent.ustawObjawy("Duze zrenice");
-
-        Lekarz lekarzDoPierwszegoPacjenta = woloska.rejestrujPacjenta(pacjent);
-
+        NFZ.domyslnyPrzypadekNFZtu();
+//      NFZ.przypadekZWyjatkami();
     }
 
-    public void domyslnyPrzypadekNFZtu()throws Exception {
+    public static void domyslnyPrzypadekNFZtu()throws Exception {
 
         Szpital woloska = new Szpital();
         Lekarz chirurg = new Chirurg("Maciek", "Chirurg", 11223345678L);
@@ -56,5 +43,21 @@ public class NFZ {
         String recepta = specjalistaDlaPacjenta.lecz(chorobaPierwszegoPacjetna);
         System.out.println(recepta);
 
+    }
+    public static void przypadekZWyjatkami()throws Exception{
+
+        Szpital woloska = new Szpital();
+        Lekarz chirurg = new Chirurg("Maciek", "Chirurg", 11223345678L);
+        Lekarz chirurgDrugi = new Chirurg("Zenek", "Chirurg", 21223345678L);
+        Lekarz internista = new Internista("Franek", "Internista", 11123345678L);
+
+        woloska.rejestrujLekarza(chirurg);
+        woloska.rejestrujLekarza(chirurgDrugi);
+        woloska.rejestrujLekarza(internista);
+
+        Pacjent pacjent = new Pacjent();
+        pacjent.ustawObjawy("Duze zrenice");
+
+        Lekarz lekarzDoPierwszegoPacjenta = woloska.rejestrujPacjenta(pacjent);
     }
 }

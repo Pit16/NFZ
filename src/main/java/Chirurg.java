@@ -19,7 +19,7 @@ public class Chirurg extends Lekarz{
         uleczalneChoroby.add(Choroba.ZLAMANIE);
     }
     @Override
-    public String lecz (Choroba choroba) throws Exception{
+    public String lecz (Choroba choroba) throws NieUmiemLeczycTejChoroby{
         if(uleczalneChoroby.contains(choroba)){
 
             return "Przeprowadzam operacje.";

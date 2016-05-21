@@ -1,5 +1,10 @@
 import java.util.LinkedList;
 
+/**
+ * Klasa odpowiedzialna za rozpoznawanie choroby oraz jej leczenie
+ * @author Piotr Katerzawa
+ *
+ */
 public class Lekarz extends Czlowiek {
 
     protected String wymaganeSkierowanie = "Skierowanie do specjalisty";
@@ -19,7 +24,16 @@ public class Lekarz extends Czlowiek {
     }
     //TODO: A moze zrobic dla chirurga wyswietla chirurg a nie lekarz
 
-    public String lecz(Choroba choroba)throws Exception{
+
+    /**
+     * Sprawia, ze lekarz leczy chorobe i zwraca recepty lub akcje ktora
+     * lekarz wykonal.
+     *
+     * @param choroba choroba, ktora trzeba wyleczyc
+     * @return akcja wykonywana przez lekarza
+     * @throws NieUmiemLeczycTejChoroby gdy dana choroba nie jest z profesii tego lekarza
+     */
+    public String lecz(Choroba choroba)throws NieUmiemLeczycTejChoroby{
         return "Dziekuje za wizyte";
     }
 
@@ -31,6 +45,12 @@ public class Lekarz extends Czlowiek {
         return "Skierowanie do specjalisty";
     }
 
+    /**
+     * Rozpoznaje chorobe a podstawie objawow.
+     *
+     * @param objawy z jakimi zglasza sie pacjent
+     * @return chorobe rozpoznana
+     */
     public Choroba diagnozuj(String objawy) {
         return Choroba.NIEZNANA;
     }
