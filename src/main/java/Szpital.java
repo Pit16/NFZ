@@ -32,14 +32,14 @@ public class Szpital {
         return "Lekarze: " +lekarzeWSzpitalu;
     }
 
-    public Lekarz rejestrujPacjenta(Pacjent pacjent) {
+    public Lekarz rejestrujPacjenta(Pacjent pacjent) throws Exception {
        listaPacjentow.add(pacjent);
         for (Lekarz lekarz: listaLekarzy) {
             if (lekarz instanceof PierwszegoKontaktu){
                 return lekarz;
             }
         }
-        return null;
+        throw new NieZnalezionoLekarzaPierwszegoKontaktu();
     }
 
     public String wypiszPacjentow() {
@@ -50,14 +50,13 @@ public class Szpital {
         return "Lista pacjentow: " +pacjenciWSzpitalu;
     }
 
-    public Lekarz skierujDoSpecjalisty(String skierowanie) {
+    public Lekarz skierujDoSpecjalisty(String skierowanie) throws Exception{
 
         for (Lekarz lekarz: listaLekarzy) {
-            if (skierowanie.equals(lekarz.wymaganeSkierowanie)) { // TODO: zrobic mapowanie SkierowanieDoLekarzy
+            if (skierowanie.equals(lekarz.wymaganeSkierowanie)) {
                 return lekarz;
             }
         }
-        return null;
+        throw new NieMaTakiegoSpecjalisty();
     }
 }
-// TODO: zrobic wyjatek gdy nie znajduje lekarza

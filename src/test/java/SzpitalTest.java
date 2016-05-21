@@ -30,19 +30,25 @@ public class SzpitalTest {
     }
 
     @Test
-    public void powienienRejestrowacPacjenta(){
+    public void powienienRejestrowacPacjenta() throws Exception{
 
         Pacjent pacjent = new Pacjent();
 
         Lekarz nowyLekarz = new Lekarz("Pierwszy", "Lekarz", 98765432100L);
         szpital.rejestrujLekarza(nowyLekarz);
-        
-        szpital.rejestrujPacjenta(pacjent);
+
+        try {
+
+            szpital.rejestrujPacjenta(pacjent);
+        }
+        catch (Exception e ){
+
+        }
 
         assertThat(szpital.wypiszPacjentow(), equalTo("Lista pacjentow: \n" +pacjent.toString()));
     }
     @Test
-    public void powinienZwrocicLekarzaPierwszegoKontaktuPrzyRejestracjiPacjenta(){
+    public void powinienZwrocicLekarzaPierwszegoKontaktuPrzyRejestracjiPacjenta() throws Exception{
         Pacjent pacjent = new Pacjent();
         Lekarz nowyLekarz = new Internista("Pierwszy", "Lekarz", 18765432100L);
         Lekarz drugiLekarz = new Internista("Drugi", "Lekarz", 28765432100L);
@@ -57,8 +63,8 @@ public class SzpitalTest {
 
         assertThat(znalezionyLekarz, equalTo(trzeciLekarz));
     }
-    @Test
-    public void powinienZwrocicNullGdyNieZnajdzieLekarzaPierwszegoKontaktu(){
+    @Test(expected = NieZnalezionoLekarzaPierwszegoKontaktu.class)
+    public void powinienZwrocicWyjatekGdyNieZnajdzieLekarzaPierwszegoKontaktu() throws Exception{
         Pacjent pacjent = new Pacjent();
         Lekarz nowyLekarz = new Internista("Pierwszy", "Lekarz", 18765432100L);
         Lekarz drugiLekarz = new Internista("Drugi", "Lekarz", 28765432100L);
@@ -71,10 +77,18 @@ public class SzpitalTest {
 
         Lekarz znalezionyLekarz = szpital.rejestrujPacjenta(pacjent);
 
-        assertThat(znalezionyLekarz, equalTo(null));
+
+    }
+    @Test(expected = NieMaTakiegoSpecjalisty.class)
+    public void powinienZwrocicWyjatekNaPodstawieSkierowaniaGdyNieMaSpecjalisty()throws Exception{
+        Lekarz internista = new Internista("Pierwszy", "Lekarz", 18765432100L);
+        szpital.rejestrujLekarza(internista);
+
+        Lekarz znalezionyLekarz = szpital.skierujDoSpecjalisty("Skierowanie do chirurga");
+
     }
     @Test
-    public void powinienZwrocicSpecjalisteNaPodstawieSkierowania(){
+    public void powinienZwrocicSpecjalisteNaPodstawieSkierowania()throws Exception{
         Lekarz internista = new Internista("Pierwszy", "Lekarz", 18765432100L);
         szpital.rejestrujLekarza(internista);
         Lekarz chirurg = new Chirurg("Chirurg", "Lekarz", 38765432100L);

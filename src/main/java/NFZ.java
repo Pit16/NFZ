@@ -2,7 +2,26 @@
  * Created by pit on 21.05.16.
  */
 public class NFZ {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
+
+
+        Szpital woloska = new Szpital();
+        Lekarz chirurg = new Chirurg("Maciek", "Chirurg", 11223345678L);
+        Lekarz chirurgDrugi = new Chirurg("Zenek", "Chirurg", 21223345678L);
+        Lekarz internista = new Internista("Franek", "Internista", 11123345678L);
+
+        woloska.rejestrujLekarza(chirurg);
+        woloska.rejestrujLekarza(chirurgDrugi);
+        woloska.rejestrujLekarza(internista);
+
+        Pacjent pacjent = new Pacjent();
+        pacjent.ustawObjawy("Duze zrenice");
+
+        Lekarz lekarzDoPierwszegoPacjenta = woloska.rejestrujPacjenta(pacjent);
+
+    }
+
+    public void domyslnyPrzypadekNFZtu()throws Exception {
 
         Szpital woloska = new Szpital();
         Lekarz chirurg = new Chirurg("Maciek", "Chirurg", 11223345678L);
