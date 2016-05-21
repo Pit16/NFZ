@@ -1,7 +1,9 @@
+import java.util.LinkedList;
 
 public class Lekarz extends Czlowiek {
 
     protected String wymaganeSkierowanie = "Skierowanie do specjalisty";
+    protected LinkedList<Choroba> uleczalneChoroby = new LinkedList<>();
 
     public Lekarz() {
         super();
@@ -17,7 +19,7 @@ public class Lekarz extends Czlowiek {
     }
     //TODO: A moze zrobic dla chirurga wyswietla chirurg a nie lekarz
 
-    public String lecz(Choroba choroba){
+    public String lecz(Choroba choroba)throws Exception{
         return "Dziekuje za wizyte";
     }
 

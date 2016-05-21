@@ -10,11 +10,14 @@ public class SpecjalistaTest {
     @Test
     public void chirurgPowienienZalozycGips() throws Exception{
         Chirurg chirurg = new Chirurg();
-        String poWizycie = chirurg.lecz(Choroba.ZMECZENIE);
-        //TODO: jest zmeczenie a zaklada gips, nie korzysta ze specyfikacji choroby
-        // moze zwrocic, nie moja profesja, idz do innego lekarza
+        String poWizycie = chirurg.lecz(Choroba.ZLAMANIE);
 
-        assertThat(poWizycie, equalTo("Zalozylem gips."));
+        assertThat(poWizycie, equalTo("Przeprowadzam operacje."));
+    }
+    @Test(expected = NieUmiemLeczycTejChoroby.class)
+    public void chirurgPowienienZwracacWyjatekBoNieLeczyTejChoroby() throws Exception{
+        Chirurg chirurg = new Chirurg();
+        String poWizycie = chirurg.lecz(Choroba.ZMECZENIE);
     }
 
     @Test
