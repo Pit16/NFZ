@@ -1,6 +1,7 @@
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Objects;
 
 /**
  * Created by pit on 13.05.16.
@@ -52,7 +53,7 @@ public class Szpital {
     public Lekarz skierujDoSpecjalisty(String skierowanie) {
 
         for (Lekarz lekarz: listaLekarzy) {
-            if (lekarz instanceof Chirurg) { // TODO: zrobic mapowanie SkierowanieDoLekarzy
+            if (skierowanie.equals(lekarz.wymaganeSkierowanie)) { // TODO: zrobic mapowanie SkierowanieDoLekarzy
                 return lekarz;
             }
         }

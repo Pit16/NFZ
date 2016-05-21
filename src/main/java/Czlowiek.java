@@ -36,4 +36,5 @@ public abstract class Czlowiek {
     }
 
     public abstract String toString();
+
 }

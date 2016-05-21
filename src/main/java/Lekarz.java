@@ -1,6 +1,8 @@
 
 public class Lekarz extends Czlowiek {
 
+    protected String wymaganeSkierowanie = "Skierowanie do specjalisty";
+
     public Lekarz() {
         super();
     }
@@ -29,5 +31,8 @@ public class Lekarz extends Czlowiek {
 
     public Choroba diagnozuj(String objawy) {
         return Choroba.NIEZNANA;
+    }
+    public String dajWymaganeSkierowanie() {
+        return wymaganeSkierowanie;
     }
 }

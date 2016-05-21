@@ -37,4 +37,9 @@ public class LekarzTest {
     public void powienienOdsylacPacjentaDoLekarzaPKNaPosdstawieDowolnychObjawow() throws Exception {
         assertThat(lekarz.diagnozuj("Jakiekolwiek objawy"),equalTo(Choroba.NIEZNANA));
     }
+
+    @Test
+    public void powienienZwracacWymaganeSkierowanie() throws Exception {
+        assertThat(lekarz.dajWymaganeSkierowanie(), equalTo("Skierowanie do specjalisty"));
+    }
 }

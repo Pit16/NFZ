@@ -81,7 +81,9 @@ public class SzpitalTest {
         szpital.rejestrujLekarza(chirurg);
 
         Lekarz znalezionyLekarz = szpital.skierujDoSpecjalisty("Skierowanie do chirurga");
-
         assertThat(znalezionyLekarz, equalTo(chirurg));
+
+        znalezionyLekarz = szpital.skierujDoSpecjalisty("Skierowanie do internisty");
+        assertThat(znalezionyLekarz, equalTo(internista));
     }
 }
